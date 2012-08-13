@@ -1,5 +1,12 @@
 <section id="masthead" class="g1204">
-  <h1 class="logo"><span>Portland Incubator Experiment</span></h1>
+  <h1 class="logo">
+      <img src="/images/pie_drain.png" class="pie_drain_img">
+      <div class="triangle left_stroke"></div>
+      <div class="triangle right_stroke"></div>
+      <div class="pie_drain" id="pie_drain"></div>
+      <div class="triangle left"></div>
+      <div class="triangle right"></div>
+  </h1>
   <dl class="stats" id="countdown">
     <!-- filled by Mustache -->
   </dl>
@@ -71,6 +78,7 @@
       data.hours = Math.floor((sd / (60*60)) - (data.days * 24) )
       data.minutes = Math.floor( ( sd / 60) - (data.days * 24 * 60) - (data.hours * 60))
       data.seconds = Math.floor(sd - (data.days * 24 * 60 * 60) - (data.hours * 60 * 60) - (data.minutes * 60))
+      data.progress = (sd/7020000);
 
       cb(data)
     }
@@ -80,6 +88,9 @@
     try{Typekit.load({
       active: function(){
         setInterval(makeCountDown("5 October, 2012 14:00:00",function(timeRemaining){
+          //Set new position for logo drain
+          $('#pie_drain').css('top',Math.ceil((1-timeRemaining.progress) * 280) + 'px');
+
           // play countdown in last eight seconds
           if(timeRemaining.minutes == 0 && timeRemaining.seconds == 8 && countdownSound){
             countdownSound.play();

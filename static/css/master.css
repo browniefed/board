@@ -11,12 +11,48 @@ body {
   text-align: center;
   margin-top: 160px; }
   #masthead h1.logo {
-    background: url("/images/logo.png") no-repeat right top;
-    display: inline-block;
     width: 322px;
-    height: 279px; }
-    #masthead h1.logo span {
-      display: none; }
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;}
+    #masthead h1.logo .triangle {
+     width: 0; 
+     height: 0; 
+     border-top: 281px solid #000;
+     position:absolute;}
+    #masthead h1.logo .left {
+      left: 0;
+      top:0;
+      border-right: 159px solid transparent;}
+    #masthead h1.logo .right {
+      right:0;
+      top:0;
+      border-left: 159px solid transparent;}
+    #masthead h1.logo .left_stroke {
+      border-top: 281px solid #E96F35;
+      border-right: 161px solid transparent;
+      left:0;
+      top:0;}
+    #masthead h1.logo .right_stroke {
+      border-top: 281px solid #E96F35;
+      border-left: 161px solid transparent;
+      right:0;
+      top:0;}
+    #masthead h1.logo .pie_drain{
+      width:322px;
+      height:280px;
+      background:#E96F35;
+      position:absolute;
+      left:0;
+      display:block;}
+    #masthead h1.logo .pie_drain_img {
+      position:absolute;
+      left: 50%;
+      top:50%;
+      margin-left: -84px;
+      margin-top: -10px;
+      z-index:2;}
   #masthead #countdown {
     margin-top: 200px; }
     #masthead #countdown dt {
@@ -144,3 +180,5 @@ dl.stats > ol > li {
   display: inline-block;
   text-align: left;
   margin: 0px; }
+
+
